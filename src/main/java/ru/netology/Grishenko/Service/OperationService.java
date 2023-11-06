@@ -8,40 +8,24 @@ import static ru.netology.Grishenko.Service.StorageService.operations;
 import java.util.Scanner;
 
 import static ru.netology.Grishenko.Service.StorageService.*;
+import static ru.netology.Grishenko.Service.lOService.*;
 
 public class OperationService {
 
-    public static void inputeOperation(Scanner scanner){
+    public static void saveOperation(){
         int operationsId=0;
         while (true){
-            System.out.println("Sum: ");
-            int sum = scanner.nextInt();
-            scanner.nextLine();
-
-            System.out.println("Currency: ");
-            String currency = scanner.nextLine();
-
-            System.out.println("Merchant: ");
-            String merchant = scanner.nextLine();
-
-            System.out.println("Client: ");
-            int cliintId = scanner.nextInt();
-            scanner.nextLine();
-
-            Operation operation = new Operation(operationsId, sum, currency, merchant);
-
-            operations[operationsId] = operation;
+            operations[operationsId] = inputOperation(operationsId);
             operationsId++;
 
             try {
-                saveToStatement(cliintId, operationsId);
+                saveToStatement(clinID(), operationsId);
             } catch (CustomerOperationOutOfBoundException e) {
                 System.out.println("Error while saving operation to statement: " + e.getMessage());
             }
 
-            System.out.println("Do you want to finish? Y/N");
-            String answer = scanner.nextLine();
-            if (answer.equals("N")){
+
+            if (inputToFinish().equals("N")){
                 break;
             }
 

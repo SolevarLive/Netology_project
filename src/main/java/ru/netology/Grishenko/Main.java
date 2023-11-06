@@ -7,23 +7,19 @@ import ru.netology.Grishenko.Service.StorageService;
 import java.util.Arrays;
 import java.util.Scanner;
 
-import static ru.netology.Grishenko.Service.CustomerService.inputClient;
-import static ru.netology.Grishenko.Service.OperationService.inputeOperation;
+import static ru.netology.Grishenko.Service.CustomerService.saveClient;
+import static ru.netology.Grishenko.Service.OperationService.saveOperation;
+import static ru.netology.Grishenko.Service.lOService.outputValues;
 
 public class Main {
-    private static StorageService storageService = new StorageService();
+    public static StorageService storageService = new StorageService();
 
     public static void main(String[] args) {
-        Scanner scanner= new Scanner(System.in);
-
-        inputClient(scanner);
-        inputeOperation(scanner);
+        saveClient();
+        saveOperation();
 
 
-        System.out.println("Client: " + Arrays.toString(storageService.getCustomers()));
-        System.out.println("Operations: " + Arrays.toString(storageService.getOperations()));
-        System.out.println("statmant: " + Arrays.deepToString(storageService.getStatmant()));
-        System.out.println("client_operation_count: " + Arrays.toString(storageService.getClient_operation_count()));
+        outputValues();
 
     }
 

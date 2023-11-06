@@ -7,6 +7,10 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Operation {
 
+    public int getId() {
+        return id;
+    }
+
     private int id;
     private int sum;
     private String currency;
