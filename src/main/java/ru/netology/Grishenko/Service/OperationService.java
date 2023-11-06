@@ -2,6 +2,8 @@ package ru.netology.Grishenko.Service;
 
 import ru.netology.Grishenko.Domain.CustomerOperationOutOfBoundException;
 import ru.netology.Grishenko.Domain.Operation;
+
+import static ru.netology.Grishenko.Service.StatementService.saveToStatement;
 import static ru.netology.Grishenko.Service.StorageService.operations;
 import java.util.Scanner;
 
@@ -22,17 +24,17 @@ public class OperationService {
             System.out.println("Merchant: ");
             String merchant = scanner.nextLine();
 
+            System.out.println("Client: ");
+            int cliintId = scanner.nextInt();
+            scanner.nextLine();
+
             Operation operation = new Operation(operationsId, sum, currency, merchant);
 
             operations[operationsId] = operation;
             operationsId++;
 
-            System.out.println("Client: ");
-            int cliintId = scanner.nextInt();
-            scanner.nextLine();
-
             try {
-                saveToStatement(statmant, cliintId, operationsId);
+                saveToStatement(cliintId, operationsId);
             } catch (CustomerOperationOutOfBoundException e) {
                 System.out.println("Error while saving operation to statement: " + e.getMessage());
             }
@@ -49,14 +51,4 @@ public class OperationService {
         }
     }
 
-    public static void saveToStatement(int[][] statmant, int cliintId, int operationsId) throws CustomerOperationOutOfBoundException {
-        if (cliintId > MAX_CLIENTS || cliintId < 0 &&
-                operationsId > MAX_OPERATIONS || operationsId < 0) {
-            throw new CustomerOperationOutOfBoundException(cliintId, operationsId);
-        }
-
-        int operationCountClient = client_operation_count[cliintId];
-        statmant[cliintId][operationCountClient] = operationsId;
-        client_operation_count[cliintId] = operationCountClient+1;
-    }
 }

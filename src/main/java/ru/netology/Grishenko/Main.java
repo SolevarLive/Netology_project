@@ -20,8 +20,6 @@ public class Main {
         inputeOperation(scanner);
 
 
-
-
         System.out.println("Client: " + Arrays.toString(storageService.getCustomers()));
         System.out.println("Operations: " + Arrays.toString(storageService.getOperations()));
         System.out.println("statmant: " + Arrays.deepToString(storageService.getStatmant()));
