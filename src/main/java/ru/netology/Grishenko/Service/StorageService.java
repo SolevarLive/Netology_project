@@ -12,8 +12,8 @@ public class StorageService<T> {
     public final static int MAX_CLIENTS = 100;
     static final int[][] statmant = new int[MAX_CLIENTS][MAX_OPERATIONS / MAX_CLIENTS];
     static final int[] client_operation_count = new int[MAX_CLIENTS];
-    static final StorageService<Client> customerStorageService = new StorageService<>(MAX_CLIENTS);
-    static final StorageService<Operation> operationStorageService = new StorageService<>(MAX_CLIENTS);
+    static final StorageService<Client> customerStorageService = new StorageService<>();
+    static final StorageService<Operation> operationStorageService = new StorageService<>();
 
     public int[][] getStatmant() {
         return statmant;
@@ -30,15 +30,16 @@ public class StorageService<T> {
         return operationStorageService;
     }
 
-    public StorageService(int capacity) {
-        this.storage = (T[]) new Object[capacity];
-    }
-
     public T getElement(int position) {
         return storage.get(position);
     }
 
     public void setElement(T element) {
         storage.add(element);
+    }
+
+    @Override
+    public String toString() {
+        return storage.toString();
     }
 }

@@ -1,6 +1,7 @@
 package ru.netology.Grishenko.Service;
 
 import ru.netology.Grishenko.Domain.CustomerOperationOutOfBoundException;
+import ru.netology.Grishenko.Domain.Operation;
 
 import static ru.netology.Grishenko.Service.StatementService.saveToStatement;
 
@@ -12,7 +13,8 @@ public class OperationService {
     public static void saveOperation(){
         int operationsId=0;
         while (true){
-            operations[operationsId] = inputOperation(operationsId);
+            Operation operation = inputOperation(operationsId);
+            operationStorageService.setElement(operation);
             operationsId++;
 
             try {
