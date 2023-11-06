@@ -1,11 +1,8 @@
 package ru.netology.Grishenko.Service;
 
 import ru.netology.Grishenko.Domain.CustomerOperationOutOfBoundException;
-import ru.netology.Grishenko.Domain.Operation;
 
 import static ru.netology.Grishenko.Service.StatementService.saveToStatement;
-import static ru.netology.Grishenko.Service.StorageService.operations;
-import java.util.Scanner;
 
 import static ru.netology.Grishenko.Service.StorageService.*;
 import static ru.netology.Grishenko.Service.lOService.*;

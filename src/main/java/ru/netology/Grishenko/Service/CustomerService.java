@@ -5,7 +5,6 @@ import ru.netology.Grishenko.Domain.Client;
 import java.util.Scanner;
 
 import static ru.netology.Grishenko.Service.StorageService.MAX_CLIENTS;
-import static ru.netology.Grishenko.Service.StorageService.clients;
 import static ru.netology.Grishenko.Service.lOService.inputClient;
 import static ru.netology.Grishenko.Service.lOService.inputToFinish;
 
