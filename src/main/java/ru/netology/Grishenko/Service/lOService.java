@@ -38,8 +38,8 @@ public class lOService {
         return cliintId;
     }
     public static void outputValues(){
-        System.out.println("Client: " + Arrays.toString(storageService.getCustomers()));
-        System.out.println("Operations: " + Arrays.toString(storageService.getOperations()));
+        System.out.println("Client: " + (StorageService.getCustomerStorageService()));
+        System.out.println("Operations: " + (StorageService.getOperationStorageService()));
         System.out.println("statmant: " + Arrays.deepToString(storageService.getStatmant()));
         System.out.println("client_operation_count: " + Arrays.toString(storageService.getClient_operation_count()));
     }

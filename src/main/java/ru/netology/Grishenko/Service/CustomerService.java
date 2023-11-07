@@ -5,7 +5,7 @@ import ru.netology.Grishenko.Domain.Client;
 import java.util.Scanner;
 
 import static ru.netology.Grishenko.Service.StorageService.MAX_CLIENTS;
-import static ru.netology.Grishenko.Service.StorageService.clients;
+import static ru.netology.Grishenko.Service.StorageService.customerStorageService;
 import static ru.netology.Grishenko.Service.lOService.inputClient;
 import static ru.netology.Grishenko.Service.lOService.inputToFinish;
 
@@ -15,9 +15,7 @@ public class CustomerService {
         int clientsCount=0;
         while (true){
             Client client = new Client(clientsCount, inputClient());
-
-
-            clients[clientsCount] = client;
+            customerStorageService.setElement(client);
             clientsCount++;
 
             if (inputToFinish().equals("N")){
