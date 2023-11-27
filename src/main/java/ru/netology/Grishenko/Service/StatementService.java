@@ -1,19 +1,30 @@
 package ru.netology.Grishenko.Service;
 
+import lombok.AllArgsConstructor;
+import org.springframework.stereotype.Component;
 import ru.netology.Grishenko.Domain.CustomerOperationOutOfBoundException;
+import ru.netology.Grishenko.Domain.Operation;
 
-import static ru.netology.Grishenko.Service.StorageService.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
+@Component
+@AllArgsConstructor
 public class StatementService {
-
-    public static void saveToStatement(int cliintId, int operationsId) throws CustomerOperationOutOfBoundException {
-        if (cliintId > MAX_CLIENTS || cliintId < 0 &&
-                operationsId > MAX_OPERATIONS || operationsId < 0) {
-            throw new CustomerOperationOutOfBoundException(cliintId, operationsId);
+    private final Map<Integer, List<Operation>> storage = new HashMap<>();
+    public  void saveOperation(Operation operation) {
+        List<Operation> operations = storage.get(operation.getId());
+        if (operations == null){
+            List<Operation> customerOperations = new ArrayList<>();
+            customerOperations.add(operation);
+            storage.put(operation.getId(), customerOperations);
+        } else {
+            operations.add(operation);
         }
-
-        int operationCountClient = client_operation_count[cliintId];
-        statmant[cliintId][operationCountClient] = operationsId;
-        client_operation_count[cliintId] = operationCountClient + 1;
+    }
+    public String getOperations(){
+        return storage.toString();
     }
 }
