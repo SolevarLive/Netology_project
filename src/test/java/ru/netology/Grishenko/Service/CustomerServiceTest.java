@@ -10,7 +10,8 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class CustomerServiceTest extends OperatinHistoryApiApplicashenTest {
-    CustomerService customerService = new CustomerService();
+    @Autowired
+    CustomerService customerService;
 
     @Test
     public void getCustomersTest(){
