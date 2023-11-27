@@ -1,30 +1,32 @@
 package ru.netology.Grishenko.Service;
 
-import ru.netology.Grishenko.Domain.Client;
+import jakarta.annotation.PostConstruct;
+import lombok.AllArgsConstructor;
+import org.springframework.stereotype.Component;
+import ru.netology.Grishenko.Domain.Customer;
 
-import java.util.Scanner;
 
-import static ru.netology.Grishenko.Service.StorageService.MAX_CLIENTS;
-import static ru.netology.Grishenko.Service.StorageService.customerStorageService;
-import static ru.netology.Grishenko.Service.lOService.inputClient;
-import static ru.netology.Grishenko.Service.lOService.inputToFinish;
+import java.util.ArrayList;
+import java.util.List;
 
+
+@Component
+@AllArgsConstructor
 public class CustomerService {
+    private final List<Customer> storage = new ArrayList<>();
 
-    public static void saveClient(){
-        int clientsCount=0;
-        while (true){
-            Client client = new Client(clientsCount, inputClient());
-            customerStorageService.setElement(client);
-            clientsCount++;
+    public void addCustomer(int id, String name){
+        Customer client = new Customer(id, name);
+        storage.add(client);
+    }
 
-            if (inputToFinish().equals("N")){
-                break;
-            }
+    public List<Customer> getCustomers(){
+        return storage;
+    }
 
-            if (clientsCount ==  MAX_CLIENTS){
-                break;
-            }
-        }
+    @PostConstruct
+    public void init(){
+        storage.add(new Customer(1, "Spring"));
+        storage.add(new Customer(2, "Boot"));
     }
 }
