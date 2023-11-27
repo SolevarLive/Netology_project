@@ -2,16 +2,15 @@ package ru.netology.Grishenko.Service;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import ru.netology.Grishenko.Domain.Customer;
-import ru.netology.Grishenko.OperatinHistoryApiApplicashen;
 
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class CustomerServiceTest extends OperatinHistoryApiApplicashen {
-    @Autowired
-    CustomerService customerService;
+public class CustomerServiceTest extends OperatinHistoryApiApplicashenTest {
+    CustomerService customerService = new CustomerService();
 
     @Test
     public void getCustomersTest(){
@@ -20,8 +19,8 @@ public class CustomerServiceTest extends OperatinHistoryApiApplicashen {
         Customer customer2 = customers.get(1);
         assertEquals(1,customer1.getId());
         assertEquals("Spring",customer1.getName());
-        assertEquals(2,customer2.getId());
-        assertEquals("Boot",customer2.getName());
+       assertEquals(2,customer2.getId());
+       assertEquals("Boot",customer2.getName());
         assertEquals(2,customers.size());
     }
 }

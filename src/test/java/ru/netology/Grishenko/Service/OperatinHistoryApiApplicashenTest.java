@@ -1,4 +1,4 @@
-package ru.netology.Grishenko;
+package ru.netology.Grishenko.Service;
 
 import org.junit.jupiter.api.Test;
 

@@ -7,5 +7,4 @@ public class OperatinHistoryApiApplicashen {
     public static void main(String[] args) {
         SpringApplication.run(OperatinHistoryApiApplicashen.class, args);
     }
-
 }
