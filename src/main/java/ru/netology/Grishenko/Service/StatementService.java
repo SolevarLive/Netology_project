@@ -14,17 +14,17 @@ import java.util.Map;
 @AllArgsConstructor
 public class StatementService {
     private final Map<Integer, List<Operation>> storage = new HashMap<>();
-    public  void saveOperation(Operation operation) {
-        List<Operation> operations = storage.get(operation.getId());
+    public void saveOperation(Operation operation) {
+        List<Operation> operations = storage.get(operation.getClientId());
         if (operations == null){
             List<Operation> customerOperations = new ArrayList<>();
             customerOperations.add(operation);
-            storage.put(operation.getId(), customerOperations);
+            storage.put(operation.getClientId(), customerOperations);
         } else {
             operations.add(operation);
         }
     }
-    public String getOperations(){
-        return storage.toString();
+    public Map<Integer, List<Operation>> getOperations(){
+        return storage;
     }
 }
