@@ -24,7 +24,7 @@ public class AsyncInputOperationService {
     }
 
     public void startProcessing(){
-        Thread t = new Thread() {
+        Thread t =  new Thread() {
             @Override
             public void run() {
                 processQueue();
