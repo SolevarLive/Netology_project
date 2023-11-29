@@ -15,11 +15,11 @@ import java.util.Map;
 public class StatementService {
     private final Map<Integer, List<Operation>> storage = new HashMap<>();
     public void saveOperation(Operation operation) {
-        List<Operation> operations = storage.get(operation.getClientId());
+        List<Operation> operations = storage.get(operation.getId());
         if (operations == null){
             List<Operation> customerOperations = new ArrayList<>();
             customerOperations.add(operation);
-            storage.put(operation.getClientId(), customerOperations);
+            storage.put(operation.getId(), customerOperations);
         } else {
             operations.add(operation);
         }
