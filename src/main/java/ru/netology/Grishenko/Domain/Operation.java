@@ -6,15 +6,12 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 public class Operation {
-
-    public int getId() {
-        return id;
-    }
-
     private int id;
     private int sum;
     private String currency;
     private String merchant;
+    private int clientId;
+
 
     public Operation(int id, int sum, String currency, String merchant){
         this.id=id;
