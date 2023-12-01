@@ -29,8 +29,8 @@ public class CustomerController {
         return new GetClientsResponse(customerDTOS);
     }
 
-    @GetMapping("/{id}")
-    public CustomerDTO getCustomer(@PathVariable(name = "id") int customerId) {
+    @GetMapping("/{customerId}")
+    public CustomerDTO getCustomer(@PathVariable int customerId) {
         for (Customer customer : customerService.getCustomers()) {
             if (customer.getId() == customerId) {
                 CustomerDTO customerDTO = new CustomerDTO(customer.getId(), customer.getName());
