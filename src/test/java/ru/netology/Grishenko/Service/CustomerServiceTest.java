@@ -2,8 +2,6 @@ package ru.netology.Grishenko.Service;
 
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.testng.annotations.BeforeMethod;
 import ru.netology.Grishenko.Domain.Customer;
 
 import java.util.List;
@@ -32,4 +30,14 @@ public class CustomerServiceTest extends OperatinHistoryApiApplicashenTest {
        customerService.addCustomer(2,"Boot");
     }
 
+    @Test
+    public void addCustomerTest() {
+        customerService.addCustomer(1, "Spring");
+        List<Customer> customers = customerService.getCustomers();
+        assertEquals(3, customers.size());
+
+        Customer customer = customers.get(0);
+        assertEquals(1, customer.getId());
+        assertEquals("Spring", customer.getName());
+    }
 }

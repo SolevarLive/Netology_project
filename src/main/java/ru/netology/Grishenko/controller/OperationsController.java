@@ -42,7 +42,7 @@ public class OperationsController {
                         operation.getCurrency(),
                         operation.getMerchant()));
 
-                return "Success";
+                return "Good";
             }
         }
 
