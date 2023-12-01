@@ -12,9 +12,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 
-class StatementServiceTest {
+class StatementServiceTest extends OperatinHistoryApiApplicashenTest {
     @Test
-    public void saveOperationTest() {
+    public void saveOperationTest()  {
         StatementService statementService = new StatementService();
         Customer customer = new Customer(1, "Spring");
         Operation operation = new Operation(1,100,"deposit","coffe");

@@ -6,7 +6,7 @@ import ru.netology.Grishenko.configuration.OperationsProcessingProperties;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class AsyncInputOperationServiceTest {
+class AsyncInputOperationServiceTest extends OperatinHistoryApiApplicashenTest {
     @Test
     public void testAddOperation() {
         AsyncInputOperationService asyncInputOperationService = new AsyncInputOperationService(new StatementService(), new OperationsProcessingProperties());
