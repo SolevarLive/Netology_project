@@ -3,6 +3,7 @@ package ru.netology.Grishenko.Service;
 import jakarta.annotation.PostConstruct;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
+import ru.netology.Grishenko.Domain.Customer;
 import ru.netology.Grishenko.Domain.Operation;
 import ru.netology.Grishenko.configuration.OperationsProcessingProperties;
 
@@ -45,12 +46,12 @@ public class AsyncInputOperationService {
                 }
             } else {
                 System.out.println("Processing operation:" + operation);
-                processOperation(operation);
+                //processOperation(operation);
             }
         }
     }
 
-    protected void processOperation(Operation operation){statementService.saveOperation(operation);}
+    protected void processOperation(Operation operation, Customer customer){statementService.saveOperation(operation, customer);}
 
     @PostConstruct
     public void init(){

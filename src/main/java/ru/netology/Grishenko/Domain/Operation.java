@@ -10,7 +10,6 @@ public class Operation {
     private int sum;
     private String currency;
     private String merchant;
-    private int clientId;
 
 
     public Operation(int id, int sum, String currency, String merchant){
