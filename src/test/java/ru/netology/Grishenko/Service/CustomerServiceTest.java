@@ -12,7 +12,7 @@ public class CustomerServiceTest extends OperatinHistoryApiApplicashenTest {
 
     static CustomerService customerService = new CustomerService();
 
-    // если проверяете отдель то getCustomersTest то поменяйте assertEquals(3,customers.size()) на assertEquals(2,customers.size())
+    // если проверяете отдель то getCustomersTest то поменяйте assertEquals(3,customers.size()) на assertEquals(2,customers.size()).
     @Test
     public void getCustomersTest(){
         List<Customer> customers = customerService.getCustomers();
